@@ -28,6 +28,7 @@ import { useState } from "react";
 import { mockData } from "./mockData";
 import Button from "@/components/form/Button";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export enum PageType {
   CREATE,
@@ -131,15 +132,26 @@ const CustomData: React.FC<CustomDataProps> = ({
             )}
             {newData.map((data, idx) => (
               <FlexCentered className="pt-20" key={`${idx}`}>
-                <Textarea
-                  width="100%"
-                  height="56px"
-                  label={data.label}
-                  inlineLabel
-                  tiny
-                  placeholder="Paste your schema here."
-                  value={data.value}
-                />
+                <motion.div
+                  style={{
+                    width: "100%",
+                    height: "100%"
+                  }}
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Textarea
+                    width="100%"
+                    height="56px"
+                    label={data.label}
+                    inlineLabel
+                    tiny
+                    placeholder="Paste your schema here."
+                    value={data.value}
+                  />
+                </motion.div>
                 <CustomDataUploadIcon src={uploadIcon} />
                 <CustomDataDeleteIcon
                   src={deleteIcon}

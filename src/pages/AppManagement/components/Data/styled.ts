@@ -50,7 +50,6 @@ export const CollapseIcon = styled.img`
 
 export const FullValue = styled.div`
   font-family: Poppins;
-  width: 100%;
   background: #007AFF;
   border-radius: 10px;
   padding: 10px 22px;

@@ -3,6 +3,7 @@ import copyIcon from "@/assets/icon-copy.svg";
 import collapseIcon from "@/assets/icon-collapse.svg";
 import collapsedIcon from "@/assets/icon-collapsed.svg";
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface DataProps {
   label?: string;
@@ -37,7 +38,21 @@ const Data: React.FC<DataProps> = ({
           onClick={() => setCollapsed(true)}
         />
       )}
-      {collapsed && <FullValue className={tiny ? "tiny" : ""}>{fullValue}</FullValue>}
+      <AnimatePresence>
+        {collapsed && (
+          <motion.div
+            style={{
+              overflow: "hidden"
+            }}
+            initial={{ height: 0 }}
+            animate={{ height: "auto" }}
+            exit={{ height: 0 }}
+            transition={{ duration: .2 }}
+          >
+            <FullValue className={tiny ? "tiny" : ""}>{fullValue}</FullValue>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Wrapper>
   )
 }
