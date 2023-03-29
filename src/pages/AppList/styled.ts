@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Ellipsis } from "@/styled";
 
 export const PageWrapper = styled.div`
   width: 100vw;
@@ -82,7 +81,7 @@ export const AppName = styled.div`
   color: #232325;
 `;
 
-export const AppWebsite = styled(Ellipsis)`
+export const AppWebsite = styled.div`
   font-family: Poppins;
   font-weight: 400;
   font-size: 12px;

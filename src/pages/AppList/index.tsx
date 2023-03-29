@@ -73,7 +73,7 @@ const AppList: React.FC = (): React.ReactElement => {
                     <AppLogo src={app.logo} />
                     <AppBaseInfo>
                       <AppName>{app.name}</AppName>
-                      <AppWebsite>
+                      <AppWebsite className="ellipsis">
                         <Link to={app.website}>{app.website}</Link>
                       </AppWebsite>
                     </AppBaseInfo>

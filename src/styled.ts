@@ -18,6 +18,11 @@ export const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
   }
+  .ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   @font-face {
     font-family: Lato-Regular;
     font-style: normal;
@@ -81,30 +86,27 @@ export const Frame = styled.div`
   background: #F6F9FD;
 `;
 
-export const Ellipsis = styled.div`
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-`;
-
 export const Flex = styled.div`
   display: flex;
-  .items-center {
+  &.items-center {
     align-items: center;
   }
-  .justify-center {
+  &.item-start {
+    align-items: flex-start;
+  }
+  &.justify-center {
     justify-content: center;
   }
-  .justify-between {
+  &.justify-between {
     justify-content: space-between;
   }
-  .justify-around {
+  &.justify-around {
     justify-content: space-around;
   }
-  .justify-start {
+  &.justify-start {
     justify-content: flex-start;
   }
-  .justify-end {
+  &.justify-end {
     justify-content: flex-end;
   }
 `;

@@ -27,6 +27,7 @@ import { css } from "styled-components";
 import { useState } from "react";
 import { mockData } from "./mockData";
 import Button from "@/components/form/Button";
+import { useNavigate } from "react-router-dom";
 
 export enum PageType {
   CREATE,
@@ -106,6 +107,7 @@ const CustomData: React.FC<CustomDataProps> = ({
   }];
 
   const [newData, setNewData] = useState<Array<any>>(defaultNewData);
+  const navigate = useNavigate();
 
   return (
     <div className="pt-25">
@@ -172,7 +174,7 @@ const CustomData: React.FC<CustomDataProps> = ({
         }
         footer={
           <CustomDataFooter>
-            <Button>Next</Button>
+            <Button onClick={() => navigate("/app/creation-process")}>Next</Button>
           </CustomDataFooter>
         }
       />
